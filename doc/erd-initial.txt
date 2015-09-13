@@ -1,0 +1,51 @@
+design database
+
+pedagang
+pemebeli
+
+
+table user_type
+
+id_user_type
+str_user_type
+str_desc
+dat_creation
+id_creation
+dat_last_updated
+id_last_updated_by
+
+
+table user_information
+id_user
+id_user_type
+str_first_name
+str_middle_name
+str_last_name
+
+
+table identification_type
+id_identification_type
+str_description
+
+table user_identifications
+id_user
+id_identification_type
+str_identification
+
+table credential_types
+id_credentia_type
+str_desc
+
+table user_credentials
+id_user
+id_credential
+str_credential
+
+
+
+
+
+
+
+
+
