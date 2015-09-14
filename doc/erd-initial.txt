@@ -3,9 +3,12 @@ design database
 pedagang
 pemebeli
 
+ass
+
 
 table user_type
-
+oke
+id_orgunit
 id_user_type
 str_user_type
 str_desc
@@ -16,6 +19,8 @@ id_last_updated_by
 
 
 table user_information
+
+id_orgunit
 id_user
 id_user_type
 str_first_name
@@ -24,10 +29,14 @@ str_last_name
 
 
 table identification_type
+
+id_orgunit
 id_identification_type
 str_description
 
 table user_identifications
+
+id_orgunit
 id_user
 id_identification_type
 str_identification
