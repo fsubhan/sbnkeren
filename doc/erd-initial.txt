@@ -3,11 +3,8 @@ design database
 pedagang
 pemebeli
 
-ass
-
-
 table user_type
-oke
+
 id_orgunit
 id_user_type
 str_user_type
