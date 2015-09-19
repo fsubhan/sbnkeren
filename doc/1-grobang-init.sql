@@ -69,7 +69,7 @@ create table user_identifications(
 create table credential_types(
 	id_credential_type           INT(2),
 	str_desc INT(8),
-	dat_creation TIMESTAMP,
+	dat_creation TIMESTAMP, 
 	id_creation INT(5),
 	dat_last_updated TIMESTAMP,
 	id_creation_last_updated INT(5)
@@ -84,3 +84,5 @@ create table user_credentials(
 	dat_last_updated TIMESTAMP,
 	id_creation_last_updated INT(5)
 );
+
+
