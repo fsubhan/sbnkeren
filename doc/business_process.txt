@@ -1,6 +1,55 @@
 business process :
-pedagang
-pembeli
+
+hosting :
+http://grobang.esy.es/index.php/orgunits
+
+http://grobang.esy.es/index.php/api/security/verifycredential?iduser=3&password=admins
+http://grobang.esy.es/index.php/api/security/setcredential?iduser=3&password=sbn
+
+http://grobang.esy.es/index.php/api/orders/putorder?payer=4&product=1&amount=1000&strorder=belimangga&statusorder=1
+http://grobang.esy.es/index.php/api/orders/findorder
+http://grobang.esy.es/index.php/api/orders/cancelorder?idpayer=4&status=2&idorder=1
+http://grobang.esy.es/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
+
+- verifyCredential
+- setCredential
+- putOrder
+- findOrder
+- cancelOrder
+- acceptOrder
+
+http://localhost/grobang-slim/index.php/api/orders/putorder?payer=4&product=1&amount=1000&strorder=belimangga&statusorder=1
+
+mysql
+u592717300_gbang	u592717300_dev	mysql.idhostinger.com	0.01
+phpmyadmin
+http://sql9.idhostinger.com/phpmyadmin/index.php?db=u592717300_gbang&table=user_credentials&token=6a70a30c1307395b642e549e2e7f2df3
+cpanel
+https://cpanel.idhostinger.com/hosting/index/aid/15891330
 
 product
 
+
+login: 
+- verifyCredential 
+http://localhost/grobang-slim/index.php/api/security/verifycredential?iduser=3&password=admins
+- setCredential
+http://localhost/grobang-slim/index.php/api/security/setcredential?iduser=3&password=sbn
+
+
+put_order:
+-putOrder
+http://localhost/grobang-slim/index.php/api/orders/putorder?payer=4&product=1&amount=1000&strorder=belimangga&statusorder=1
+-findOrder
+http://localhost/grobang-slim/index.php/api/orders/findorder
+-cancelOrder
+http://localhost/grobang-slim/index.php/api/orders/cancelorder?idpayer=4&status=2&idorder=1
+-acceptOrder
+http://localhost/grobang-slim/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
+
+
+[begin] to order -> [1]request order (continue)
+	order to cancel[] -> [2]cancel order(stop)
+	order to accept-> [5]processing order (continue)
+procesing to cancel -> [9]reject(stop)
+procesing to receipt -> [10]receipt order(stop)

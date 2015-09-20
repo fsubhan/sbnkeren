@@ -6,11 +6,7 @@
 --identification_types
 --user_identifications
 
-
-
-
-
-create table orgUnits(
+create table orgunits(
 	id_entity INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	id_orgunit VARCHAR(5) NOT NULL,
 	str_desc VARCHAR(20),
@@ -30,7 +26,6 @@ create table user_types(
 	dat_last_updated TIMESTAMP,
 	id_creation_last_updated INT(5)
 );
-
 
 create table user_informations(
 	id_user INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -78,11 +73,69 @@ create table credential_types(
 create table user_credentials(
 	id_entity INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	id_user INT(8),
-	str_credentials VARCHAR(20),
+	id_crendential_type INT(2),
+	str_credential VARCHAR(20),
 	dat_creation TIMESTAMP,
 	id_creation INT(5),
 	dat_last_updated TIMESTAMP,
 	id_creation_last_updated INT(5)
 );
+
+create table products(
+	id_product INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_user INT(8),
+	)
+
+
+create table product_prices(
+	id_product INT(10),
+	id_qty INT(10),
+	amnt_price_product NUMBER,
+	dat_creation TIMESTAMP,
+	id_creation INT(8)
+	dat_last_updated TIMESTAMP,
+	id_creation_last_updated INT(8)
+	)
+	
+create table grobang_order_status(
+	id_order_status INT(2),
+	str_status VARCHAR(50),
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
+	);
+
+insert into grobang_order_status(id_order_status, str_status, dat_creation, id_creation) values
+(1, 'requestorder', now(), 100),
+(2, 'cancel-requestorder', now(), 100), 
+(5, 'processingorder', now(), 100),
+(7, 'failed-procesingorder', now(), 100),
+(10, 'done-receiptorder', now(), 100);
+
+		
+create table grobang_orders(
+	id_order INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_payer INT(8),
+	id_product INT(8),
+	amnt_amount DECIMAL,
+	str_order VARCHAR(20),
+	id_order_status INT(2),
+	dat_order TIMESTAMP,
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
+	);
+	
+
+create table grobang_txns(
+	id_txn INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_payer INT(8),
+	id_order,
+	
+	
+)
+
 
 
