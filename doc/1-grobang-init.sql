@@ -1,11 +1,3 @@
---orgunits
---user_types
---user_informations
---identifications_types
---user_identifications
---identification_types
---user_identifications
-
 create table orgunits(
 	id_entity INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	id_orgunit VARCHAR(5) NOT NULL,
@@ -84,6 +76,10 @@ create table user_credentials(
 create table products(
 	id_product INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	id_user INT(8),
+	dat_creation TIMESTAMP, 
+	id_creation INT(5),
+	dat_last_updated TIMESTAMP,
+	id_creation_last_updated INT(5)
 	)
 
 
@@ -122,20 +118,38 @@ create table grobang_orders(
 	str_order VARCHAR(20),
 	id_order_status INT(2),
 	dat_order TIMESTAMP,
+	id_payer_lat DECIMAL,
+	id_payer_long DECIMAL,
+	id_payee INT(8),
+	id_payee_lat DECIMAL,
+	id_payee_long DECIMAL
 	dat_creation TIMESTAMP,
 	id_creation INT(8),
 	dat_last_updated TIMESTAMP NULL,
 	id_creation_last_updated INT(5) NULL
 	);
 	
+create table grobang_order_details(
+	id_order INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_product INT(8),
+	id_product_type INT(8),
+	id_qty INT(8),
+	amnt_amount DECIMAL,
+	str_desc VARCHAR(20),
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
+	);	
+	
 
 create table grobang_txns(
 	id_txn INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	id_payer INT(8),
-	id_order,
-	
-	
+	id_peyee INT(8),
+	id_order INT(20),
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
 )
-
-
-
