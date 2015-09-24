@@ -1,5 +1,5 @@
 create table orgunits(
-	id_entity INT(5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_entity INT(5) PRIMARY KEY,
 	id_orgunit VARCHAR(5) NOT NULL,
 	str_desc VARCHAR(20),
 	dat_creation TIMESTAMP,
@@ -32,6 +32,17 @@ create table user_informations(
 	dat_last_updated TIMESTAMP,
 	id_creation_last_updated INT(5)
 );
+
+alter table user_informations
+add foreign key (id_orgunit)
+references orgunits(id_rate);
+
+alter table user_informations
+add foreign key (id_user_type)
+references user_types(id_user_type);
+
+	
+
 
 create table identification_types(
 	id_identification_type INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -153,3 +164,36 @@ create table grobang_txns(
 	dat_last_updated TIMESTAMP NULL,
 	id_creation_last_updated INT(5) NULL
 )
+
+create table rate_satisfaction(
+	id_rate INT(5) PRIMARY KEY,
+	str_satisfaction VARCHAR(20),
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
+	);
+
+	insert into rate_satisfaction(id_rate, str_satisfaction, dat_creation, id_creation) values(5,'Excellent', now(), 100);
+	insert into rate_satisfaction(id_rate, str_satisfaction, dat_creation, id_creation) values(4,'Very Good', now(), 100);
+	insert into rate_satisfaction(id_rate, str_satisfaction, dat_creation, id_creation) values(3,'Good', now(), 100);
+	insert into rate_satisfaction(id_rate, str_satisfaction, dat_creation, id_creation) values(2,'Fair', now(), 100);
+	insert into rate_satisfaction(id_rate, str_satisfaction, dat_creation, id_creation) values(1,'Poor', now(), 100);
+
+create table customer_satisfaction(
+	id_entity INT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id_order INT(20) NOT NULL,
+	id_producer INT(8),
+	id_consumer INT(8),
+	id_rate INT(5),
+	str_testimony VARCHAR(50),
+	dat_creation TIMESTAMP,
+	id_creation INT(8),
+	dat_last_updated TIMESTAMP NULL,
+	id_creation_last_updated INT(5) NULL
+	);
+	
+alter table customer_satisfaction
+add foreign key (id_rate)
+references rate_satisfaction(id_rate);	
+	

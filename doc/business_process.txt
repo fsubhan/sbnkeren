@@ -11,6 +11,9 @@ http://grobang.esy.es/index.php/api/orders/findorder
 http://grobang.esy.es/index.php/api/orders/cancelorder?idpayer=4&status=2&idorder=1
 http://grobang.esy.es/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
 
+
+http://grobang.esy.es/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
+
 - verifyCredential
 - setCredential
 - putOrder
@@ -39,14 +42,17 @@ http://localhost/grobang-slim/index.php/api/security/setcredential?iduser=3&pass
 
 put_order:
 -putOrder
-http://localhost/grobang-slim/index.php/api/orders/putorder?payer=4&product=1&amount=1000&strorder=belimangga&statusorder=1
 -findOrder
-http://localhost/grobang-slim/index.php/api/orders/findorder
 -cancelOrder
-http://localhost/grobang-slim/index.php/api/orders/cancelorder?idpayer=4&status=2&idorder=1
 -acceptOrder
-http://localhost/grobang-slim/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
+http://localhost/grobang/index.php/api/orders/putorder?payer=4&product=1&amount=1000&strorder=belimangga&statusorder=1
+http://localhost/grobang/index.php/api/orders/findorder
+http://localhost/grobang/index.php/api/orders/cancelorder?idpayer=4&status=2&idorder=1
+http://localhost/grobang/index.php/api/orders/acceptorder?idpayer=4&status=10&idorder=1
 
+customer_satisfaction
+http://localhost/grobang/index.php/api/satisfaction/putsatisfaction?payer=4&payee=10&idrate=1&testimony=lumayan deh &idorder=1
+http://www.localhost.com/grobang/index.php/api/satisfaction/putsatisfaction?payer=4&payee=10&idrate=1&testimony=lumayan&idorder=1
 
 [begin] to order -> [1]request order (continue)
 	order to cancel[] -> [2]cancel order(stop)
