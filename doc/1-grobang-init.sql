@@ -133,7 +133,7 @@ create table grobang_orders(
 	id_payer_long DECIMAL,
 	id_payee INT(8),
 	id_payee_lat DECIMAL,
-	id_payee_long DECIMAL
+	id_payee_long DECIMAL,
 	dat_creation TIMESTAMP,
 	id_creation INT(8),
 	dat_last_updated TIMESTAMP NULL,
